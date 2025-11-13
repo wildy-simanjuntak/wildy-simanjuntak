@@ -1,141 +1,283 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wildy Simanjuntak | Software Engineer Portfolio</title>
-    <meta name="description"
-        content="Portfolio of Wildy, a Software Engineer who specializes in WebXR, Three.js, and full-stack development.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Portfolio | Wildy Simanjuntak, Software Engineer & Three.js Developer</title>
+    <meta name="description" content="Interactive portfolio of Wildy Simanjuntak, a Software Engineer and Three.js Developer. Specializing in WebGL, real-time 3D animation, and high-performance web development.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Inter & Styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet" />
 </head>
+<body>
+    <div id="webgl-container"></div>
 
-<body class="bg-white text-gray-900 max-w-3xl mx-auto px-6 py-12 leading-relaxed">
-    <header class="mb-12">
-        <h1 class="text-4xl font-bold mb-2">Wildy Simanjuntak</h1>
-        <p class="text-lg text-gray-600">Software Engineer — Specializing in 3D Web, WebXR & Full-Stack Development</p>
-    </header>
+    <main class="content-overlay">
 
-    <main>
-        <section class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4">About Me</h2>
-            <p>
-                I am a software engineer passionate about building cutting-edge web experiences. My work combines 3D
-                visualization, real-time interactivity, and scalable architectures. I focus on developing
-                high-performance
-                applications using WebXR, Three.js, and modern JavaScript frameworks. Whether it's immersive VR or
-                full-stack
-                systems, I strive to create efficient, elegant, and impactful digital solutions.
-            </p>
+        <header class="sticky top-0 z-50 bg-slate-900 bg-opacity-90 backdrop-blur-sm shadow-xl border-b border-cyan-700/50">
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+
+                <a href="#hero" class="text-3xl font-extrabold neon-text transition">
+                    Wildy Simanjuntak <span class="text-xs font-light text-cyan-400/70 block -mt-1"><span id="dynamic-role-title"></span><span class="typing-cursor"></span></span>
+                </a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-sm font-medium hover:text-cyan-400 transition">About</a>
+                    <a href="#skills" class="text-sm font-medium hover:text-cyan-400 transition">Skills</a>
+                    <a href="#experience" class="text-sm font-medium hover:text-cyan-400 transition">Experience</a>
+                    <a href="#projects" class="text-sm font-medium hover:text-cyan-400 transition">3D Projects</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-cyan-400 transition">Contact</a>
+                </div>
+
+                <button id="mobile-menu-button" class="md:hidden text-cyan-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </nav>
+
+            <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-cyan-700/50">
+                <a href="#about" class="block py-3 px-6 text-sm hover:bg-slate-800" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+                <a href="#skills" class="block py-3 px-6 text-sm hover:bg-slate-800" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a>
+                <a href="#experience" class="block py-3 px-6 text-sm hover:bg-slate-800" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Experience</a>
+                <a href="#projects" class="block py-3 px-6 text-sm hover:bg-slate-800" onclick="document.getElementById('mobile-menu').classList.add('hidden')">3D Projects</a>
+                <a href="#contact" class="block py-3 px-6 text-sm hover:bg-slate-800" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+            </div>
+        </header>
+
+        <section id="hero" class="h-[90vh] flex items-center justify-center text-center px-4" aria-labelledby="hero-heading">
+            <div class="max-w-4xl p-6 bg-slate-900/70 backdrop-blur-md rounded-xl shadow-2xl border border-cyan-700/50 animate-fade-in">
+                <h1 id="hero-heading" class="text-6xl md:text-8xl font-extrabold mb-4 leading-tight">
+                    <span id="dynamic-hero-heading" class="neon-text block"></span><span class="typing-cursor"></span>
+                </h1>
+                <p class="text-xl md:text-3xl font-light mb-8 text-slate-300">
+                    I transform ideas into real-time, interactive experiences using WebGL and modern technologies.
+                </p>
+                <a href="#projects" class="inline-block px-10 py-4 text-lg font-bold bg-cyan-600 text-slate-900 rounded-full hover:bg-cyan-400 transition duration-300 shadow-cyan-500/50 shadow-lg transform hover:scale-105">
+                    View 3D Creations
+                </a>
+            </div>
         </section>
 
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4">Projects</h2>
-
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold">Neon-Rhythm-3D (Game)</h3>
-                <p class="text-gray-700">
-                    A fast-paced, 3D rhythm game prototype built entirely with **Three.js** and post-processing. It
-                    showcases skills in game loop management, real-time physics (note movement/hit detection), and
-                    creating
-                    an immersive **Unreal Bloom** visual aesthetic for dynamic glow and lighting effects.
-                </p>
-                <div class="mt-2">
-                    <a href="https://neon-rhythm-3d.vercel.app/" class="text-blue-600 underline" target="_blank">Live
-                        Preview</a>
+        <section id="about" class="py-24 bg-slate-800/80 border-t border-b border-cyan-700/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-5xl font-extrabold text-center mb-12 text-white">About Me</h2>
+                <div class="md:flex items-center gap-12">
+                    <div class="md:w-1/3 mb-8 md:mb-0">
+                        <img src="https://placehold.co/300x300/1e293b/06b6d4?text=WILDY+S" alt="Avatar Three.js Developer" class="rounded-xl w-48 h-48 object-cover mx-auto shadow-2xl card-neon">
+                    </div>
+                    <div class="md:w-2/3 space-y-6">
+                        <p class="text-xl leading-relaxed text-slate-400">
+                            I am a software engineer passionate about building cutting-edge web experiences. My work combines 3D visualization, real-time interactivity, and scalable architectures.
+                        </p>
+                        <p class="text-lg leading-relaxed text-slate-400">
+                            I focus on developing high-performance applications using WebXR, Three.js, and modern JavaScript frameworks. Whether it's immersive VR or full-stack systems, I strive to create efficient, elegant, and impactful digital solutions.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold">WebGL - Grass Simulation</h3>
-                <p class="text-gray-700">
-                    A real-time animated grass simulation built using WebGL and custom shaders in Three.js. This project
-                    demonstrates instanced rendering techniques and efficient vertex animation to simulate realistic
-                    grass
-                    behavior, optimized for performance in interactive 3D scenes.
-                </p>
-                <div class="mt-2">
-                    <a href="https://archieve-wildy13.vercel.app/archives/Grass/index.html"
-                        class="text-blue-600 underline" target="_blank">Live Preview</a>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold">Three Dash</h3>
-                <p class="text-gray-700">
-                    A responsive template inspired by threejs.org — featuring an interactive examples gallery, a viewer
-                    with preview & source tabs, and a clean layout ready for production.
-                </p>
-                <div class="mt-2">
-                    <a href="https://three-dash-six.vercel.app/" class="text-blue-600 underline" target="_blank">Live
-                        Preview</a>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold">3D World Exploration</h3>
-                <p class="text-gray-700">
-                    A real-time 3D world prototype developed using Three.js. This project features open-world terrain
-                    navigation,
-                    basic character control, and environment rendering with optimized performance for the web. It lays
-                    the
-                    groundwork for larger immersive applications such as games or interactive simulations.
-                </p>
-                <div class="mt-2">
-                    <a href="https://archieve-wildy13.vercel.app/archives/3D%20World/"
-                        class="text-blue-600 underline" target="_blank">Live Preview</a>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold">Nike Cinematic</h3>
-                <p class="text-gray-700">
-                    A high-fidelity 3D product showcase created with Three.js. This scene highlights realistic
-                    materials, dynamic lighting, and reflective surfaces, providing an interactive visualization of the
-                    shoes from every angle.
-                </p>
-                <div class="mt-2">
-                    <a href="https://nike-cinematic.vercel.app/ "
-                        class="text-blue-600 underline" target="_blank">Live Preview</a>
-                </div>
-            </div>
-
         </section>
 
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4">Skills</h2>
-            <ul class="list-disc list-inside text-gray-700">
-                <li>JavaScript, TypeScript, Node.js</li>
-                <li>Three.js, WebXR, WebGPU, Shader Development</li>
-                <li>Nuxt 3, Vue.js, Tailwind CSS</li>
-                <li>MongoDB, REST API, Real-time Systems (Socket.io)</li>
-                <li>XR UI/UX, InstancedMesh Optimization, ECS Architecture</li>
-            </ul>
+        <section id="skills" class="py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-white">Technical Skills</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="bg-slate-900 p-6 rounded-xl card-neon text-center">
+                        <span class="text-5xl mb-4 block neon-text">🌐</span>
+                        <h3 class="text-2xl font-semibold mb-2 text-white">Core Languages & Backend</h3>
+                        <p class="text-slate-400"> <span class="text-slate-300">JavaScript</span>, <span class="text-slate-300">TypeScript</span>, and <span class="text-slate-300">Node.js</span> for building robust, scalable full-stack applications.</p>
+                    </div>
+
+                    <div class="bg-slate-900 p-6 rounded-xl card-neon text-center">
+                        <span class="text-5xl mb-4 block neon-text">🚀</span>
+                        <h3 class="text-2xl font-semibold mb-2 text-white">Advanced 3D & Graphics</h3>
+                        <p class="text-slate-400">Deep expertise in <span class="text-slate-300">Three.js</span>, <span class="text-slate-300">WebXR</span>, <span class="text-slate-300">WebGPU</span>, and custom <span class="text-slate-300">Shader Development (GLSL)</span>.</p>
+                    </div>
+
+                    <div class="bg-slate-900 p-6 rounded-xl card-neon text-center">
+                        <span class="text-5xl mb-4 block neon-text">💡</span>
+                        <h3 class="text-2xl font-semibold mb-2 text-white">Frontend Frameworks</h3>
+                        <p class="text-slate-400">Specialist in <span class="text-slate-300">Nuxt 3</span> and <span class="text-slate-300">Vue.js</span> for dynamic UIs, styled professionally with <span class="text-slate-300">Tailwind CSS</span>.</p>
+                    </div>
+                    
+                    <div class="bg-slate-900 p-6 rounded-xl card-neon text-center">
+                        <span class="text-5xl mb-4 block neon-text">🗄️</span>
+                        <h3 class="text-2xl font-semibold mb-2 text-white">Data & Real-Time</h3>
+                        <p class="text-slate-400">Experience with <span class="text-slate-300">MongoDB</span>, developing high-performance **REST APIs**, and **Socket.io** for real-time interactivity.</p>
+                    </div>
+                    
+                    <div class="bg-slate-900 p-6 rounded-xl card-neon text-center">
+                        <span class="text-5xl mb-4 block neon-text">⚙️</span>
+                        <h3 class="text-2xl font-semibold mb-2 text-white">3D Optimization & Architecture</h3>
+                        <p class="text-slate-400">Focus on <span class="text-slate-300">InstancedMesh</span> optimization, <span class="text-slate-300">ECS</span> pattern, and effective <span class="text-slate-300">XR UI/UX</span> design.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section>
-            <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-            <p>
-                If you'd like to collaborate or discuss a project, feel free to get in touch:
-            </p>
-            <ul class="mt-2 text-gray-700">
-                <li>Email: <a href="mailto:wildy.simanjuntak13@gmail.com"
-                        class="text-blue-600 underline">wildy.simanjuntak13@gmail.com</a> or <a href="mailto:simanjuntakwildy@gmail.com"
-                        class="text-blue-600 underline">simanjuntakwildy@gmail.com</a></li>
-                <li>GitHub: <a href="https://github.com/wildy-simanjuntak" class="text-blue-600 underline">github.com/wildy-simanjuntak</a>
-                </li>
-                <li>LinkedIn: <a href="https://linkedin.com/in/wildy-simanjuntak"
-                        class="text-blue-600 underline">linkedin.com/in/wildy-simanjuntak</a>
-                </li>
-            </ul>
+        <section id="experience" class="py-24 bg-slate-900 border-t border-b border-cyan-700/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-white">Work Experience</h2>
+                
+                <div class="timeline max-w-4xl mx-auto">
+                    
+                <div class="timeline max-w-4xl mx-auto">
+                    
+                    <!-- Experience Item 1: Full-time Web Software Developer (ODD - Right Side) -->
+                    <div class="timeline-item">
+                        <div class="timeline-date-wrapper">
+                            <p class="text-sm font-semibold text-cyan-400 mb-1 md:mb-0 timeline-date">Apr 2023 - Present (Full-time)</p>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-xl card-neon">
+                            <h3 class="text-2xl font-semibold mb-1 text-white">Web Software Developer</h3>
+                            <p class="text-cyan-400 mb-1">Labtech International, Ltd</p>
+                            <p class="text-xs text-slate-500 mb-3">Batam, Riau Islands, Indonesia (On-site)</p>
+                            <ul class="list-disc list-inside text-slate-400 space-y-2 text-sm">
+                                <li>Designed and implemented high-fidelity simulations using <span class="text-slate-300">Unity/C#</span> to enhance user engagement and learning.</li>
+                                <li>Created immersive <span class="text-slate-300">WebXR</span> experiences, leveraging virtual and augmented reality technologies for innovative solutions.</li>
+                                <li>Developed and maintained robust web-based systems, ensuring optimal performance and user accessibility.</li>
+                                <li>Oversaw maintenance and continuous improvement of the Learning Management System (<span class="text-slate-300">LMS</span>).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Item 2: Internship Web Software Developer (EVEN - Left Side) -->
+                    <div class="timeline-item">
+                        <div class="timeline-date-wrapper">
+                            <p class="text-sm font-semibold text-cyan-400 mb-1 md:mb-0 timeline-date">Jul 2022 - Mar 2023 (Internship)</p>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-xl card-neon">
+                            <h3 class="text-2xl font-semibold mb-1 text-white">Web Software Developer Intern</h3>
+                            <p class="text-cyan-400 mb-1">Labtech International, Ltd</p>
+                            <p class="text-xs text-slate-500 mb-3">Sekupang, Riau Islands, Indonesia</p>
+                            <ul class="list-disc list-inside text-slate-400 space-y-2 text-sm">
+                                <li>Contributed to the development and maintenance of core web-based systems using technologies like <span class="text-slate-300">Node.js</span> and <span class="text-slate-300">Nuxt.js</span>.</li>
+                                <li>Ensured optimal performance, security, and user accessibility of the company's digital platforms.</li>
+                                <li>Assisted in continuous improvement efforts for the Learning Management System (LMS).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         </section>
+
+        <section id="projects" class="py-24 bg-slate-800/80 border-t border-b border-cyan-700/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-white">Featured 3D Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                    <article class="bg-slate-900 rounded-xl overflow-hidden card-neon group">
+                        <div class="h-48 bg-slate-700 flex items-center justify-center text-center text-white text-3xl font-bold border-b border-cyan-500/50">
+                            <img src="assets/images/nike-cinematic.png" alt="Nike Cinematic" class="object-cover w-full h-full">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 neon-text">Nike Cinematic</h3>
+                            <p class="text-slate-400 mb-4">A high-fidelity 3D product showcase created with Three.js. This scene highlights realistic materials, dynamic lighting, and reflective surfaces, providing an interactive visualization of the shoes from every angle.</p>
+                            <a href="https://nike-cinematic.vercel.app/" class="text-sm font-medium text-cyan-400 hover:text-white transition">View Live Demo &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-slate-900 rounded-xl overflow-hidden card-neon group">
+                        <div class="h-48 bg-slate-700 flex items-center justify-center text-center text-white text-3xl font-bold border-b border-cyan-500/50">
+                            <img src="assets/images/grass-simulation.png" alt="Nike Cinematic" class="object-cover w-full h-full">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 neon-text">Grass Simulation</h3>
+                            <p class="text-slate-400 mb-4">A real-time animated grass simulation built using WebGL and custom shaders in Three.js. This project demonstrates instanced rendering techniques and efficient vertex animation to simulate realistic grass behavior, optimized for performance in interactive 3D scenes.</p>
+                            <a href="https://archieve-wildy13.vercel.app/archives/Grass/index.html" class="text-sm font-medium text-cyan-400 hover:text-white transition">View Live Demo &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-slate-900 rounded-xl overflow-hidden card-neon group">
+                        <div class="h-48 bg-slate-700 flex items-center justify-center text-center text-white text-3xl font-bold border-b border-cyan-500/50">
+                            <img src="assets/images/3d-world.png" alt="3D World Exploration" class="object-cover w-full h-full">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 neon-text">3D World Exploration</h3>
+                            <p class="text-slate-400 mb-4">A real-time 3D world prototype developed using Three.js. This project features open-world terrain navigation, basic character control, and environment rendering with optimized performance for the web. It lays the groundwork for larger immersive applications such as games or interactive simulations.</p>
+                            <a href="https://archieve-wildy13.vercel.app/archives/3D%20World/" class="text-sm font-medium text-cyan-400 hover:text-white transition">View Live Demo &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-slate-900 rounded-xl overflow-hidden card-neon group">
+                        <div class="h-48 bg-slate-700 flex items-center justify-center text-center text-white text-3xl font-bold border-b border-cyan-500/50">
+                             <img src="assets/images/three-dash.png" alt="Nike Cinematic" class="object-cover w-full h-full">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 neon-text">Three Dash (Ongoing)</h3>
+                            <p class="text-slate-400 mb-4">A responsive template inspired by threejs.org — featuring an interactive examples gallery, a viewer with preview & source tabs, and a clean layout ready for production.</p>
+                            <a href="https://three-dash-six.vercel.app/" class="text-sm font-medium text-cyan-400 hover:text-white transition">View Live Demo &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-slate-900 rounded-xl overflow-hidden card-neon group">
+                        <div class="h-48 bg-slate-700 flex items-center justify-center text-center text-white text-3xl font-bold border-b border-cyan-500/50">
+                            
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 neon-text">VR Tour</h3>
+                            <p class="text-slate-400 mb-4">A virtual reality tour of Pandang Tak Jemu, a historical site in Bali, Indonesia. This project showcases interactive 360-degree views, allowing users to explore the site in a virtual environment.</p>
+                            <a href="https://vr.pandangtakjemu.com/" class="text-sm font-medium text-cyan-400 hover:text-white transition">View Live Demo &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="relative">
+            <a
+                href="https://wa.me/628970097044" 
+                target="_blank" 
+                class="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 hover:bg-green-600 transition"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.52 3.48A11.82 11.82 0 0 0 12.04 0 11.82 11.82 0 0 0 .56 11.86a11.7 11.7 0 0 0 1.58 5.92L0 24l6.37-1.68a11.83 11.83 0 0 0 5.67 1.45h.01A11.81 11.81 0 0 0 24 11.84a11.75 11.75 0 0 0-3.48-8.36ZM12.04 21.5h-.01a9.6 9.6 0 0 1-4.9-1.34l-.35-.2-3.78 1 1-3.68-.25-.38a9.53 9.53 0 0 1-1.48-5A9.67 9.67 0 0 1 12.04 2.2 9.67 9.67 0 0 1 21.8 11.86a9.68 9.68 0 0 1-9.76 9.64ZM17.16 14.9c-.26-.13-1.53-.76-1.77-.84s-.41-.13-.59.13-.68.83-.83 1-.3.19-.56.06a7.9 7.9 0 0 1-2.32-1.43 8.66 8.66 0 0 1-1.61-2 0.64 0.64 0 0 1 .19-.88c.16-.16.37-.42.55-.63a2 2 0 0 0 .37-.63.55.55 0 0 0-.02-.53c-.06-.13-.59-1.41-.8-1.94s-.44-.44-.59-.45h-.5a.97.97 0 0 0-.7.33 2.93 2.93 0 0 0-.9 2.16 5.11 5.11 0 0 0 1.07 2.72c.13.19 1.84 2.81 4.48 3.95a15.29 15.29 0 0 0 1.49.55 3.59 3.59 0 0 0 1.64.1c.5-.07 1.53-.62 1.74-1.23s.21-1.12.15-1.23-.23-.19-.49-.32Z" />
+                </svg>
+                <span>Chat via WhatsApp</span>
+            </a>
+        </section>
+
+        <!-- <section id="contact" class="py-24">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-5xl font-bold mb-4 text-white">Let's Bring Your 3D Vision to Life</h2>
+                <p class="text-xl mb-8 text-slate-300">I am ready for the next WebGL challenge. Send a message now!</p>
+
+                <div id="form-message-box"></div>
+
+                <form id="contact-form" class="space-y-6 text-left bg-slate-900 p-8 rounded-xl card-neon text-slate-200">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-cyan-400">Full Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-cyan-400">Your Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-cyan-400">Project Details</label>
+                        <textarea id="message" name="message" rows="5" class="mt-1 block w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500" required></textarea>
+                    </div>
+                    <button type="submit" id="submit-button" class="w-full px-4 py-3 text-lg font-semibold bg-cyan-600 text-slate-900 rounded-lg hover:bg-cyan-400 transition duration-300 transform hover:scale-[1.01] shadow-xl">
+                        Send Inquiry
+                    </button>
+                </form>
+
+            </div>
+        </section> -->
     </main>
 
-    <footer class="mt-16 text-sm text-gray-500">
-        &copy; 2025 Wildy. Built with Tailwind CSS.
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-cyan-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">&copy; 2025 Wildy Simanjuntak</p>
+        </div>
     </footer>
-</body>
 
+    <script src="main.js"></script>
+
+</body>
 </html>

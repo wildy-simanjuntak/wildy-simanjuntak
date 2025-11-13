@@ -1,3 +1,122 @@
-body {
-    font-family: 'Space Grotesk', sans-serif;
-}
+    body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Dark background color */
+            color: #e2e8f0; /* Light text */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Container for 3D Canvas */
+        #webgl-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Position under HTML content */
+            pointer-events: none; /* Allow clicks to pass through canvas */
+            transition: opacity 1.5s ease;
+        }
+
+        /* Overlay for HTML content */
+        .content-overlay {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Neon Accent Color */
+        .neon-text {
+            color: #06b6d4; /* Cyan 400 */
+            text-shadow: 0 0 5px rgba(6, 182, 212, 0.7), 0 0 10px rgba(6, 182, 212, 0.5);
+        }
+        
+        /* Neon-bordered Card */
+        .card-neon {
+            border: 2px solid rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+            transition: all 0.3s ease;
+        }
+        .card-neon:hover {
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.5), 0 0 5px rgba(6, 182, 212, 0.8);
+            transform: scale(1.02);
+        }
+
+        /* Blinking Cursor Effect on Dynamic Text */
+        .typing-cursor {
+            border-right: 2px solid #06b6d4; /* Cyan color */
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #06b6d4; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #06b6d4;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        
+        /* Timeline style for Experience section */
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            padding: 2em 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-1px);
+            width: 2px;
+            height: 100%;
+            background: #1e293b; /* Dark grey line */
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2em;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #06b6d4; /* Neon cyan dot */
+            border: 3px solid #0f172a; /* Background color border */
+            z-index: 1;
+        }
+        /* Left/right placement on desktop */
+        .timeline-item:nth-child(odd) .card-neon {
+            left: calc(50% + 20px);
+        }
+        .timeline-item:nth-child(even) .card-neon {
+            left: -420px; /* Card max width 400px + 20px margin */
+        }
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 10px;
+            }
+            .timeline-item::after {
+                left: 10px;
+                transform: translateX(0);
+            }
+            .timeline-item .card-neon {
+                left: 30px !important;
+                width: calc(100% - 40px);
+            }
+            .timeline-date {
+                text-align: left !important;
+                margin-left: 30px;
+            }
+        }
