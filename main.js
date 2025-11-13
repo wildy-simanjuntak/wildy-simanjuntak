@@ -91,7 +91,7 @@
         
         // Data for text animation (TRANSLATED)
         const heroHeadings = ['SOFTWARE ENGINEER', 'THREE.JS DEVELOPER', 'UNITY DEVELOPER'];
-        const roleTitles = ['Software Engineer', 'Three.js Developer', 'Unity Specialist'];
+        const roleTitles = ['Software Engineer', 'Three.js Developer', 'Unity Developer'];
         
         let heroIndex = 0;
         let roleIndex = 0;
