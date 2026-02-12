@@ -28,8 +28,8 @@ I'm a passionate software developer who loves building interactive web and game 
 ### 🚀 GitHub Stats & Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=wildy-simanjuntak&theme=algolia&row=1&column=7" alt="GitHub Trophies" />
-  <br>
+  /* <img src="https://github-profile-trophy.vercel.app/?username=wildy-simanjuntak&theme=algolia&row=1&column=7" alt="GitHub Trophies" />
+  <br> /*
   <img src="https://github-readme-stats-steel-six-58.vercel.app/api?username=wildy-simanjuntak&cache=0&&show_icons=true&theme=radical" alt="GitHub Stats" />
   <br>
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=wildy-simanjuntak&theme=radical" alt="GitHub Streak" />
