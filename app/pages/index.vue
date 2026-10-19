@@ -10,9 +10,10 @@
           <span>// Unity Developer & Interactive 3D Specialist</span>
         </div>
         
-        <h1 class="font-display text-fluid-hero font-extrabold tracking-tighter text-white uppercase">
-          Wildy <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-neonPurple">Simanjuntak</span>
-        </h1>
+        <h2 class="font-display font-extrabold tracking-tighter text-white uppercase text-3xl md:text-7xl">
+          Wildy
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-neonPurple text-3xl md:text-7xl">Simanjuntak</span>
+        </h2>
         
         <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-sans">
           Building award-level immersive simulations, WebXR experiences, and modern high-performance web systems from Batam, Indonesia.

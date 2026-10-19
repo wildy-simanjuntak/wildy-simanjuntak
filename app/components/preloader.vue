@@ -5,7 +5,7 @@
   >
     <div class="overflow-hidden mb-4">
       <h1 class="font-display text-2xl md:text-4xl font-bold tracking-wider text-neonCyan uppercase">
-        Wildy Johanes Simanjuntak
+        Wildy Simanjuntak
       </h1>
     </div>
     <div class="flex items-center gap-4">
