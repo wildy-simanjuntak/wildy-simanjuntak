@@ -9,7 +9,7 @@
           Architecting Immersive Worlds & High-Performance Web Systems.
         </h2>
         <p class="text-gray-400 text-base md:text-lg leading-relaxed font-sans">
-          Informatics Engineering professional with over 3 years of hands-on expertise in software development, interactive 3D simulations, and web system management[cite: 1]. I architect engaging Unity-based simulations and modern web applications utilizing Vue/Nuxt and Tailwind CSS[cite: 1], combining strong technical problem-solving with a passion for seamless, high-performance immersive user experiences[cite: 1]. Based in Batam, Indonesia[cite: 1].
+          Informatics Engineering professional with over 3 years of hands-on expertise in software development, interactive 3D simulations, and web system management. I architect engaging Unity-based simulations and modern web applications utilizing Vue/Nuxt and Tailwind CSS, combining strong technical problem-solving with a passion for seamless, high-performance immersive user experiences. Based in Batam, Indonesia.
         </p>
         
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-surfaceBorder">
