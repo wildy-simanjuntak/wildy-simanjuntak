@@ -2,7 +2,6 @@
   <div>
     <Preloader v-if="isLoading" @complete="isLoading = false" />
     
-    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center px-6 pt-24 overflow-hidden">
       <HeroCanvas />
       
@@ -28,8 +27,7 @@
           </a>
         </div>
       </div>
-
-      <!-- Scroll Indicator -->
+>
       <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 font-mono text-xs z-10">
         <span>SCROLL TO DISCOVER</span>
         <div class="w-[1px] h-12 bg-surfaceBorder relative overflow-hidden">

@@ -9,7 +9,7 @@
           Architecting Immersive Worlds & High-Performance Web Systems.
         </h2>
         <p class="text-gray-400 text-base md:text-lg leading-relaxed font-sans">
-          Informatics Engineering professional with over 3 years of hands-on expertise in software development, interactive 3D simulations, and web system management. I architect engaging Unity-based simulations and modern web applications utilizing Vue/Nuxt and Tailwind CSS, combining strong technical problem-solving with a passion for seamless, high-performance immersive user experiences. Based in Batam, Indonesia.
+          Informatics Engineering professional with over 3 years of hands-on expertise in software development, interactive 3D simulations, and web system management[cite: 1]. I architect engaging Unity-based simulations and modern web applications utilizing Vue/Nuxt and Tailwind CSS[cite: 1], combining strong technical problem-solving with a passion for seamless, high-performance immersive user experiences[cite: 1]. Based in Batam, Indonesia[cite: 1].
         </p>
         
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-surfaceBorder">
@@ -34,16 +34,17 @@
 
       <div class="lg:col-span-5 relative">
         <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-surface border border-surfaceBorder group">
-          <!-- Parallax / stylistic visual placeholder for portrait -->
-          <div class="absolute inset-0 bg-gradient-to-tr from-neonPurple/20 to-neonCyan/20 mix-blend-overlay"></div>
-          <div class="absolute inset-0 flex items-center justify-center p-8 text-center">
-            <div class="space-y-3">
-              <div class="w-20 h-20 mx-auto rounded-full bg-neonCyan/10 border border-neonCyan flex items-center justify-center text-neonCyan font-display font-bold text-2xl">
-                WJS
-              </div>
-              <h3 class="font-display text-xl font-bold text-white">Wildy Johanes Simanjuntak</h3>
-              <p class="text-xs text-gray-400 font-mono">Batam, Riau Islands, Indonesia</p>
-            </div>
+          <img 
+            src="/me.jpg" 
+            alt="Wildy Johanes Simanjuntak" 
+            class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+          />
+          
+          <div class="absolute inset-0 bg-gradient-to-tr from-darkBg/80 via-transparent to-neonCyan/20 mix-blend-multiply pointer-events-none"></div>
+          
+          <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-darkBg via-darkBg/60 to-transparent">
+            <h3 class="font-display text-lg font-bold text-white">Wildy Johanes Simanjuntak</h3>
+            <p class="text-xs text-neonCyan font-mono">Batam, Riau Islands, Indonesia</p>
           </div>
         </div>
       </div>

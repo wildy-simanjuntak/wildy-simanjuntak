@@ -8,7 +8,6 @@
     </div>
 
     <div class="relative border-l border-surfaceBorder ml-4 md:ml-32 space-y-16">
-      <!-- Item 1 -->
       <div class="relative pl-8 md:pl-12 group">
         <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-neonCyan ring-4 ring-darkBg"></div>
         <div class="text-xs font-mono text-neonCyan mb-2">Apr 2023 - Present &bull; Batam, Riau Islands, Indonesia</div>
@@ -20,7 +19,6 @@
         </ul>
       </div>
 
-      <!-- Item 2 -->
       <div class="relative pl-8 md:pl-12 group">
         <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-surfaceBorder group-hover:bg-neonCyan transition-colors ring-4 ring-darkBg"></div>
         <div class="text-xs font-mono text-neonCyan mb-2">Jul 2022 - Mar 2023 &bull; Sekupang, Riau Islands, Indonesia</div>

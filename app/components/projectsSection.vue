@@ -8,7 +8,6 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Project 1 -->
       <div class="group relative rounded-2xl overflow-hidden bg-surface border border-surfaceBorder p-8 flex flex-col justify-between hover:border-neonCyan transition-all duration-300">
         <div>
           <div class="flex items-center justify-between mb-6">
@@ -27,7 +26,6 @@
         </div>
       </div>
 
-      <!-- Project 2 -->
       <div class="group relative rounded-2xl overflow-hidden bg-surface border border-surfaceBorder p-8 flex flex-col justify-between hover:border-neonCyan transition-all duration-300">
         <div>
           <div class="flex items-center justify-between mb-6">
@@ -46,7 +44,6 @@
         </div>
       </div>
 
-      <!-- Project 3 -->
       <div class="group relative rounded-2xl overflow-hidden bg-surface border border-surfaceBorder p-8 flex flex-col justify-between hover:border-neonCyan transition-all duration-300">
         <div>
           <div class="flex items-center justify-between mb-6">
@@ -65,7 +62,6 @@
         </div>
       </div>
 
-      <!-- Project 4 -->
       <div class="group relative rounded-2xl overflow-hidden bg-surface border border-surfaceBorder p-8 flex flex-col justify-between hover:border-neonCyan transition-all duration-300">
         <div>
           <div class="flex items-center justify-between mb-6">

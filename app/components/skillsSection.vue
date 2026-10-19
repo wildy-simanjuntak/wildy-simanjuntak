@@ -7,7 +7,6 @@
       <h2 class="font-display text-3xl md:text-5xl font-bold text-white">Core Competencies & Stack</h2>
     </div>
 
-    <!-- Infinite Marquee -->
     <div class="relative w-full overflow-hidden whitespace-nowrap py-4 bg-surfaceBorder/20 border-y border-surfaceBorder">
       <div class="inline-flex gap-8 animate-marquee text-neonCyan font-mono text-sm tracking-widest uppercase">
         <span v-for="n in 2" :key="n" class="inline-flex gap-8 items-center">
