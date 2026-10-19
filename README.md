@@ -12,11 +12,11 @@
 
 ### 💻 About Me
 
-- 🔭 I’m currently architecting high-fidelity interactive 3D and 2D simulations using **Unity** at **Labtech Penta International**[cite: 1].
-- 🌱 Passionate about bridging the gap between game engine engineering, **WebXR (VR/AR)**, and modern web systems using **Nuxt.js / Vue.js**[cite: 1].
-- 🎓 Graduate in **Diploma III (D3) Informatics Engineering** from Politeknik Negeri Batam (GPA 3.47/4.00)[cite: 1].
-- 📍 Based in Batam, Riau Islands, Indonesia[cite: 1].
-- ✉️ Reach out via email: **wildy.simanjuntak13@gmail.com**[cite: 1]
+- 🔭 I’m currently architecting high-fidelity interactive 3D and 2D simulations using **Unity** at **Labtech Penta International**.
+- 🌱 Passionate about bridging the gap between game engine engineering, **WebXR (VR/AR)**, and modern web systems using **Nuxt.js / Vue.js**.
+- 🎓 Graduate in **Diploma III (D3) Informatics Engineering** from Politeknik Negeri Batam (GPA 3.47/4.00).
+- 📍 Based in Batam, Riau Islands, Indonesia.
+- ✉️ Reach out via email: **wildy.simanjuntak13@gmail.com**
 
 ---
 
@@ -26,11 +26,11 @@
 
 | Category | Technologies / Tools |
 | :--- | :--- |
-| **Languages** | `C#`, `JavaScript`, `HTML5`, `CSS3`[cite: 1] |
-| **Frontend & Web** | `Nuxt.js`, `Vue.js`, `Tailwind CSS`, `Three.js`[cite: 1] |
-| **Immersive / XR** | `Unity 2D/3D`, `WebXR (VR & AR)`[cite: 1] |
-| **Databases & Tools**| `MongoDB`, `Git`, `GitHub`[cite: 1] |
-| **Domain Expertise**| `Simulation Development`, `LMS Administration & Maintenance`, `Immersive UX`[cite: 1] |
+| **Languages** | `C#`, `JavaScript`, `HTML5`, `CSS3` |
+| **Frontend & Web** | `Nuxt.js`, `Vue.js`, `Tailwind CSS`, `Three.js` |
+| **Immersive / XR** | `Unity 2D/3D`, `WebXR (VR & AR)` |
+| **Databases & Tools**| `MongoDB`, `Git`, `GitHub` |
+| **Domain Expertise**| `Simulation Development`, `LMS Administration & Maintenance`, `Immersive UX` |
 
 </div>
 
