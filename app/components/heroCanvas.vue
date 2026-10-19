@@ -62,7 +62,7 @@ onMounted(() => {
     opacity: 0.25
   })
   const meshShape = new THREE.Mesh(geoShape, matShape)
-  meshShape.position.set(2, 0, -1)
+  meshShape.position.set(0, 0, -1)
   scene.add(meshShape)
 
   window.addEventListener('mousemove', onMouseMove)
