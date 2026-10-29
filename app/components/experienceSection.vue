@@ -11,7 +11,7 @@
       <div class="relative pl-8 md:pl-12 group">
         <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-neonCyan ring-4 ring-darkBg"></div>
         <div class="text-xs font-mono text-neonCyan mb-2">Apr 2023 - Present &bull; Batam, Riau Islands, Indonesia</div>
-        <h3 class="font-display text-2xl font-bold text-white">Unity Developer (Full-time)</h3>
+        <h3 class="font-display text-2xl font-bold text-white">Unity Developer (Contract)</h3>
         <h4 class="text-sm font-semibold text-gray-400 mb-4">Labtech Penta International</h4>
         <ul class="space-y-3 text-gray-400 text-sm leading-relaxed list-disc list-inside">
           <li>Architected and engineered high-fidelity, interactive 3D and 2D simulations using Unity, elevating user engagement and educational learning outcomes.</li>
