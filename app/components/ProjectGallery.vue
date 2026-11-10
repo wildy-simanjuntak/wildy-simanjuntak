@@ -56,19 +56,21 @@ onMounted(() => {
   
   if (!prefersReducedMotion) {
     ctx = gsap.context(() => {
-      const sections = gsap.utils.toArray('.project-card')
       
-      gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1) - 10,
+      // KITA GANTI: Animasikan wrapper-nya langsung, bukan sections-nya
+      gsap.to(wrapper.value, {
+        // Geser ke kiri sejauh (Total panjang konten - Lebar layar saat ini)
+        x: () => -(wrapper.value.scrollWidth - window.innerWidth),
         ease: "none",
         scrollTrigger: {
           trigger: container.value,
           pin: true,
           scrub: 1,
-          snap: 1 / (sections.length - 1),
-          end: () => "+=" + wrapper.value.offsetWidth
+          // end-nya kita buat dinamis berdasarkan panjang wrapper
+          end: () => "+=" + (wrapper.value.scrollWidth - window.innerWidth)
         }
       })
+      
     }, container.value) 
   }
 })
