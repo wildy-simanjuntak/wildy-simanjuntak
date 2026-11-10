@@ -3,7 +3,7 @@
     <p class="hero-subtitle gs-reveal text-[clamp(1rem,2vw,1.5rem)] text-[#94A3B8] uppercase tracking-[0.1em]">Let's build something immersive</p>
     
     <a href="mailto:wildy.simanjuntak13@gmail.com" class="big-email interactive gs-reveal text-[clamp(2rem,5vw,6rem)] my-8 inline-block transition-colors duration-300 hover:text-[#7DD3FC] font-['Syne']">
-      Hello@Wildy.dev
+      Keep in touch
     </a>
     
     <div class="social-links gs-reveal flex gap-8 mt-8">

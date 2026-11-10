@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -49,24 +49,43 @@ const projects = [
   }
 ]
 
-onMounted(() => {
+onMounted(async () => {
+  // 1. Tunggu Vue selesai memasang HTML
+  await nextTick()
+
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   
   if (!prefersReducedMotion) {
-    ctx = gsap.context(() => {
-      
-      gsap.to(wrapper.value, {
-        x: () => -(wrapper.value.scrollWidth - window.innerWidth),
-        ease: "none",
-        scrollTrigger: {
-          trigger: container.value,
-          pin: true,
-          scrub: 1,
-          end: () => "+=" + (wrapper.value.scrollWidth - window.innerWidth)
+    // 2. Beri jeda sangat singkat agar Custom Fonts & CSS selesai mengubah ukuran DOM
+    setTimeout(() => {
+      if (!wrapper.value || !container.value) return;
+
+      ctx = gsap.context(() => {
+        
+        // Fungsi aman untuk menghitung jarak scroll
+        const getScrollAmount = () => {
+          let amount = wrapper.value.scrollWidth - window.innerWidth
+          // Jangan sampai minus jika monitor sangat lebar
+          return amount > 0 ? amount : 0 
         }
-      })
-      
-    }, container.value) 
+
+        // Jika konten sudah muat di layar (amount = 0), batalkan animasi pin
+        if (getScrollAmount() === 0) return;
+
+        gsap.to(wrapper.value, {
+          x: () => -getScrollAmount(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: container.value,
+            pin: true,
+            scrub: 1,
+            end: () => "+=" + getScrollAmount(),
+            invalidateOnRefresh: true // HITUNG ULANG jika browser di-resize
+          }
+        })
+        
+      }, container.value) 
+    }, 100) // Delay 100ms sangat efektif di Nuxt
   }
 })
 
