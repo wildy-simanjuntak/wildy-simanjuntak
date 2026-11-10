@@ -1,6 +1,6 @@
 <template>
   <section ref="aboutSec" class="about container mx-auto px-[5vw] py-[10vh] relative">
-    <p class="about-text gs-reveal text-[clamp(1.5rem,3vw,2.5rem)] leading-[1.4] max-w-[1000px] text-[#94A3B8] font-['Syne']">
+    <p class="about-text gs-reveal text-[clamp(1.5rem,3vw,2.5rem)] leading-[1.4] max-w-[1000px] text-[#94A3B8] font-['Syne'] text-justify">
       Informatics Engineering professional based in Batam. I architect engaging <span class="text-[#F8FAFC]">Unity-based simulations</span> and modern web applications utilizing <span class="text-[#F8FAFC]">Vue, Nuxt, and Tailwind CSS</span>. I combine strong technical problem-solving with a passion for seamless, <span class="text-[#F8FAFC]">high-performance immersive user experiences</span>.
     </p>
   </section>

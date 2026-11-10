@@ -44,7 +44,7 @@ const projects = [
   { 
     title: 'Electrical Engineering', 
     desc: 'Developed real-time circuit logic and interactive experiment systems for Ohm\'s Law, switches, and complete Residential Wiring installations.', 
-    tech: ['C#', 'Circuit Logic', 'WebXR'], 
+    tech: ['C#', 'Circuit Logic'], 
     link: '#' 
   }
 ]
