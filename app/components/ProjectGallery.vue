@@ -57,16 +57,13 @@ onMounted(() => {
   if (!prefersReducedMotion) {
     ctx = gsap.context(() => {
       
-      // KITA GANTI: Animasikan wrapper-nya langsung, bukan sections-nya
       gsap.to(wrapper.value, {
-        // Geser ke kiri sejauh (Total panjang konten - Lebar layar saat ini)
         x: () => -(wrapper.value.scrollWidth - window.innerWidth),
         ease: "none",
         scrollTrigger: {
           trigger: container.value,
           pin: true,
           scrub: 1,
-          // end-nya kita buat dinamis berdasarkan panjang wrapper
           end: () => "+=" + (wrapper.value.scrollWidth - window.innerWidth)
         }
       })
