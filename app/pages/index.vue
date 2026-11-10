@@ -1,52 +1,109 @@
 <template>
-  <div>
-    <Preloader v-if="isLoading" @complete="isLoading = false" />
-    
-    <section class="relative min-h-screen flex items-center justify-center px-6 pt-24 overflow-hidden">
-      <HeroCanvas />
-      
-      <div class="max-w-7xl mx-auto w-full z-10 text-center space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-surfaceBorder text-neonCyan text-xs font-mono uppercase tracking-widest">
-          <span>// Unity Developer & Interactive 3D Specialist</span>
-        </div>
-        
-        <h2 class="font-display font-extrabold tracking-tighter text-white uppercase text-3xl md:text-7xl">
-          Wildy
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-neonPurple text-3xl md:text-7xl">Simanjuntak</span>
-        </h2>
-        
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-sans">
-          Building award-level immersive simulations, WebXR experiences, and modern high-performance web systems from Batam, Indonesia.
-        </p>
+  <div class="noise fixed inset-0 pointer-events-none opacity-[0.04] z-[9999]"></div>
+  
+  <div ref="cursorDot" class="cursor-dot fixed w-2 h-2 bg-[#7DD3FC] rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2"></div>
+  <div ref="cursorOutline" class="cursor-outline fixed w-10 h-10 border border-[#7DD3FC] rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-all duration-200"></div>
 
-        <div class="pt-8 flex items-center justify-center gap-4">
-          <a href="#projects" class="px-6 py-3 rounded-full bg-neonCyan text-darkBg font-bold text-xs uppercase tracking-wider hover:bg-white transition-all">
-            Explore Work
-          </a>
-          <a href="#contact" class="px-6 py-3 rounded-full bg-surface border border-surfaceBorder text-white font-bold text-xs uppercase tracking-wider hover:border-neonCyan transition-all">
-            Get in Touch
-          </a>
-        </div>
-      </div>
->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 font-mono text-xs z-10">
-        <span>SCROLL TO DISCOVER</span>
-        <div class="w-[1px] h-12 bg-surfaceBorder relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1/2 bg-neonCyan animate-bounce"></div>
-        </div>
-      </div>
-    </section>
-
+  <main>
+    <HeroSection />
     <AboutSection />
-    <SkillsSection />
-    <ExperienceSection />
-    <ProjectsSection />
-    <EducationSection />
+    <ProjectGallery />
+    <SkillsExperience />
     <ContactSection />
-  </div>
+  </main>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-const isLoading = ref(true)
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Lenis from '@studio-freight/lenis'
+
+gsap.registerPlugin(ScrollTrigger)
+
+// Template Refs
+const cursorDot = ref(null)
+const cursorOutline = ref(null)
+const preloader = ref(null)
+const heroContent = ref(null)
+
+let lenis
+let ctx // Untuk GSAP context cleanup
+let animationFrameId
+
+onMounted(() => {
+  // Cek Reduced Motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  ctx = gsap.context(() => {
+    // 1. Preloader Animation
+    const tl = gsap.timeline()
+    tl.to('.preloader-text', { y: -50, opacity: 0, duration: 0.5, ease: 'power2.in' })
+      .to(preloader.value, { yPercent: -100, duration: 0.8, ease: 'expo.inOut' })
+      .from('.hero-title', { y: 100, opacity: 0, duration: 1, ease: 'expo.out' }, '-=0.3')
+      .from('.hero-subtitle', { y: 50, opacity: 0, duration: 1, ease: 'expo.out' }, '-=0.6')
+
+    if (!prefersReducedMotion) {
+      // 2. Smooth Scroll (Lenis)
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true
+      })
+
+      lenis.on('scroll', ScrollTrigger.update)
+      gsap.ticker.add((time) => { lenis.raf(time * 1000) })
+      gsap.ticker.lagSmoothing(0)
+
+      // 3. Custom Cursor & Parallax Logic
+      let mouseX = window.innerWidth / 2
+      let mouseY = window.innerHeight / 2
+      let outlineX = mouseX
+      let outlineY = mouseY
+
+      const handleMouseMove = (e) => {
+        mouseX = e.clientX
+        mouseY = e.clientY
+        
+        // Dot follows instantly
+        gsap.to(cursorDot.value, { x: mouseX, y: mouseY, duration: 0 })
+
+        // 3D Parallax Hero
+        const x = (mouseX - window.innerWidth / 2) / 50
+        const y = (mouseY - window.innerHeight / 2) / 50
+        gsap.to(heroContent.value, {
+          rotateX: -y,
+          rotateY: x,
+          x: x * 2,
+          y: y * 2,
+          duration: 1,
+          ease: 'power2.out'
+        })
+      }
+
+      window.addEventListener('mousemove', handleMouseMove)
+
+      // Cursor Outline Render Loop
+      const renderCursor = () => {
+        outlineX += (mouseX - outlineX) * 0.15
+        outlineY += (mouseY - outlineY) * 0.15
+        gsap.set(cursorOutline.value, { x: outlineX, y: outlineY })
+        animationFrameId = requestAnimationFrame(renderCursor)
+      }
+      renderCursor()
+
+      // Tambahkan logic GSAP ScrollTrigger untuk .projects-wrapper horizontal scroll di sini
+    }
+  })
+})
+
+onUnmounted(() => {
+  // Cleanup untuk mencegah memory leak saat navigasi antar halaman
+  if (ctx) ctx.revert()
+  if (lenis) {
+    lenis.destroy()
+    gsap.ticker.remove((time) => { lenis.raf(time * 1000) })
+  }
+  if (animationFrameId) cancelAnimationFrame(animationFrameId)
+})
 </script>
