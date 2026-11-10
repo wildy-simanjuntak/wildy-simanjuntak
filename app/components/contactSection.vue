@@ -30,7 +30,6 @@ let ctx
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    // 1. Scroll Reveal Animations
     gsap.utils.toArray('.gs-reveal').forEach(elem => {
       gsap.fromTo(elem, 
         { y: 50, opacity: 0 }, 
@@ -45,7 +44,6 @@ onMounted(() => {
       )
     })
 
-    // 2. Magnetic Buttons Logic
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (!prefersReducedMotion) {
       document.querySelectorAll('.magnetic-btn').forEach(btn => {
@@ -64,7 +62,6 @@ onMounted(() => {
         btn.addEventListener('mousemove', moveButton)
         btn.addEventListener('mouseleave', resetButton)
         
-        // Cleanup listeners via context return
         return () => {
           btn.removeEventListener('mousemove', moveButton)
           btn.removeEventListener('mouseleave', resetButton)

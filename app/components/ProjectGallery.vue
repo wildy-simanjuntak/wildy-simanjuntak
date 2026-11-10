@@ -2,7 +2,6 @@
   <section class="projects-container h-screen flex items-center overflow-hidden" ref="container">
     <div class="projects-wrapper flex gap-16 px-[5vw] w-fit" ref="wrapper">
       
-      <!-- Looping data proyek -->
       <a v-for="(proj, index) in projects" :key="index" :href="proj.link" class="project-card interactive w-[400px] h-[550px] bg-white/2 border border-[rgba(125,211,252,0.15)] rounded-2xl p-8 flex flex-col justify-end relative preserve-3d transition-colors duration-300 hover:border-[#7DD3FC]">
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B1220]/90 rounded-2xl z-[1] -translate-z-5"></div>
         <div class="project-content z-[2] translate-z-8">
@@ -29,7 +28,6 @@ const container = ref(null)
 const wrapper = ref(null)
 let ctx
 
-// Data Proyek disesuaikan persis dengan CV Anda
 const projects = [
   { 
     title: 'Automotive & EV Technology', 

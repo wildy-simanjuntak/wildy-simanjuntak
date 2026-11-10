@@ -6,7 +6,6 @@
       <h1 class="hero-title text-[clamp(3rem,8vw,8rem)] leading-none uppercase mb-4 font-['Syne']">Wildy J.<br>Simanjuntak</h1>
       <p class="hero-subtitle text-[clamp(1rem,2vw,1.5rem)] text-[#94A3B8] uppercase tracking-[0.1em] mb-8">Web & Unity Developer</p>
       
-      <!-- Tombol Download CV -->
       <a href="/CV - Wildy Johanes Simanjuntak.pdf" download="CV - Wildy Johanes Simanjuntak.pdf" class="interactive px-8 py-3 border border-[#7DD3FC] text-[#7DD3FC] rounded-full hover:bg-[#7DD3FC]/10 transition-colors duration-300 inline-block font-['JetBrains_Mono'] text-sm tracking-widest uppercase">
         Download CV
       </a>

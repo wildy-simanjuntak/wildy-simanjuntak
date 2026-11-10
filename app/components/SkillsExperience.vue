@@ -1,6 +1,5 @@
 <template>
   <section ref="expertiseSec" class="container mx-auto px-[5vw] py-[10vh] grid grid-cols-1 md:grid-cols-2 gap-16">
-    <!-- Kolom Kiri: Core Stack -->
     <div>
       <h2 class="section-title gs-reveal text-5xl mb-12 text-[#7DD3FC] font-['Syne']">Core Stack</h2>
       <div class="skill-list gs-reveal space-y-6">
@@ -10,12 +9,10 @@
       </div>
     </div>
 
-    <!-- Kolom Kanan: Experience & Education -->
     <div>
       <h2 class="section-title gs-reveal text-5xl mb-12 text-[#7DD3FC] font-['Syne']">Experience</h2>
       <div class="exp-list">
         
-        <!-- Pekerjaan 1 -->
         <div class="exp-item gs-reveal mb-8 pl-6 border-l border-[rgba(125,211,252,0.15)] relative">
           <div class="absolute left-[-5px] top-0 w-[9px] h-[9px] bg-[#7DD3FC] rounded-full"></div>
           <h3 class="exp-role text-2xl font-['Syne']">Unity Developer (Contract)</h3>
@@ -25,7 +22,6 @@
           </p>
         </div>
 
-        <!-- Pekerjaan 2 -->
         <div class="exp-item gs-reveal mb-8 pl-6 border-l border-[rgba(125,211,252,0.15)] relative">
           <div class="absolute left-[-5px] top-0 w-[9px] h-[9px] bg-[#7DD3FC] rounded-full"></div>
           <h3 class="exp-role text-2xl font-['Syne']">Web Software Developer Intern</h3>
@@ -36,7 +32,6 @@
         </div>
       </div>
 
-      <!-- Education Section -->
       <h2 class="section-title gs-reveal text-5xl mb-12 mt-16 text-[#7DD3FC] font-['Syne']">Education</h2>
       <div class="exp-list">
         <div class="exp-item gs-reveal mb-8 pl-6 border-l border-[rgba(125,211,252,0.15)] relative">

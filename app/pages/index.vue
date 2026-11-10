@@ -21,22 +21,19 @@ import Lenis from '@studio-freight/lenis'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Template Refs
 const cursorDot = ref(null)
 const cursorOutline = ref(null)
 const preloader = ref(null)
 const heroContent = ref(null)
 
 let lenis
-let ctx // Untuk GSAP context cleanup
+let ctx 
 let animationFrameId
 
 onMounted(() => {
-  // Cek Reduced Motion
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   ctx = gsap.context(() => {
-    // 1. Preloader Animation
     const tl = gsap.timeline()
     tl.to('.preloader-text', { y: -50, opacity: 0, duration: 0.5, ease: 'power2.in' })
       .to(preloader.value, { yPercent: -100, duration: 0.8, ease: 'expo.inOut' })
@@ -44,7 +41,6 @@ onMounted(() => {
       .from('.hero-subtitle', { y: 50, opacity: 0, duration: 1, ease: 'expo.out' }, '-=0.6')
 
     if (!prefersReducedMotion) {
-      // 2. Smooth Scroll (Lenis)
       lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -55,7 +51,6 @@ onMounted(() => {
       gsap.ticker.add((time) => { lenis.raf(time * 1000) })
       gsap.ticker.lagSmoothing(0)
 
-      // 3. Custom Cursor & Parallax Logic
       let mouseX = window.innerWidth / 2
       let mouseY = window.innerHeight / 2
       let outlineX = mouseX
@@ -65,10 +60,8 @@ onMounted(() => {
         mouseX = e.clientX
         mouseY = e.clientY
         
-        // Dot follows instantly
         gsap.to(cursorDot.value, { x: mouseX, y: mouseY, duration: 0 })
 
-        // 3D Parallax Hero
         const x = (mouseX - window.innerWidth / 2) / 50
         const y = (mouseY - window.innerHeight / 2) / 50
         gsap.to(heroContent.value, {
@@ -83,7 +76,6 @@ onMounted(() => {
 
       window.addEventListener('mousemove', handleMouseMove)
 
-      // Cursor Outline Render Loop
       const renderCursor = () => {
         outlineX += (mouseX - outlineX) * 0.15
         outlineY += (mouseY - outlineY) * 0.15
@@ -92,13 +84,11 @@ onMounted(() => {
       }
       renderCursor()
 
-      // Tambahkan logic GSAP ScrollTrigger untuk .projects-wrapper horizontal scroll di sini
     }
   })
 })
 
 onUnmounted(() => {
-  // Cleanup untuk mencegah memory leak saat navigasi antar halaman
   if (ctx) ctx.revert()
   if (lenis) {
     lenis.destroy()
