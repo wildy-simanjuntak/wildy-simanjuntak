@@ -7,8 +7,8 @@
     </a>
     
     <div class="social-links gs-reveal flex gap-8 mt-8">
-      <a href="https://github.com" target="_blank" class="magnetic-btn interactive px-8 py-4 border border-[rgba(125,211,252,0.15)] rounded-full bg-transparent text-[#F8FAFC] transition-colors duration-300 hover:bg-[#7DD3FC]/10 inline-block">GitHub</a>
-      <a href="https://linkedin.com" target="_blank" class="magnetic-btn interactive px-8 py-4 border border-[rgba(125,211,252,0.15)] rounded-full bg-transparent text-[#F8FAFC] transition-colors duration-300 hover:bg-[#7DD3FC]/10 inline-block">LinkedIn</a>
+      <a href="https://github.com/wildy-simanjuntak" target="_blank" class="magnetic-btn interactive px-8 py-4 border border-[rgba(125,211,252,0.15)] rounded-full bg-transparent text-[#F8FAFC] transition-colors duration-300 hover:bg-[#7DD3FC]/10 inline-block">GitHub</a>
+      <a href="https://linkedin.com/in/wildy-simanjuntak" target="_blank" class="magnetic-btn interactive px-8 py-4 border border-[rgba(125,211,252,0.15)] rounded-full bg-transparent text-[#F8FAFC] transition-colors duration-300 hover:bg-[#7DD3FC]/10 inline-block">LinkedIn</a>
     </div>
 
     <footer class="absolute bottom-0 w-full text-center p-8 text-[#94A3B8] text-xs border-t border-[rgba(125,211,252,0.15)]">
